@@ -31,9 +31,9 @@ pub mod pallet {
     
     #[pallet::error]
     pub enum Error<T> {
-            /// Patient record Exists.
+            
             CandidateAlreadyVoted,
-            /// The patient doesnot exist in the record, so cannot be verified.
+          
             NotVoted,
         }
     
@@ -90,7 +90,7 @@ pub mod pallet {
 			// Verify that the specified proof has been claimed.
 			ensure!(Proofs::<T>::contains_key(&VoterID), Error::<T>::NotVoted);
 
-			// Get owner of the claim.
+			// Get elected.
 			let (Elected,_) = Proofs::<T>::get(&VoterID);
 
 			// Emit an event that the claim was erased.
